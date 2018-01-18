@@ -10,6 +10,8 @@ gem_group :staging, :production do
 end
 
 run "echo \"\nruby '2.4.3'\n\n\" >> Gemfile"
+run "cat Gemfile | ruby -ne 'puts $_.sub("gem 'sqlite3'", "# gem 'sqlite3'")' > Gemfile2"
+run "rm Gemfile; mv Gemfile2 Gemfile"
 
 file 'Procfile', <<-CODE
 web: bundle exec puma -C config/puma.rb
