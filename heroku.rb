@@ -1,4 +1,3 @@
-gem 'puma'
 gem 'mysql2'
 
 gem_group :development, :test do
