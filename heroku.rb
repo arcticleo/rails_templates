@@ -11,7 +11,7 @@ gem_group :staging, :production do
 end
 
 run "echo \"\nruby '2.4.3'\n\n\" >> Gemfile"
-run "echo \"web: bundle exec puma -C config/puma.rb\nworker: rake jobs:work\"\n > Procfile"
+run "echo web:\ bundle\ exec\ puma\ -C\ config/puma.rb\nworker:\ rake\ jobs:work\n > Procfile"
 
 env = %Q{ 
   DEVELOPMENT_HOSTNAME=mysql.website.com
